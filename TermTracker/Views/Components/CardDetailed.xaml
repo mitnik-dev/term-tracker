@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:TermTracker.Views.Components"
+             x:Class="TermTracker.Views.Components.CardDetailed">
+
+    <Frame BackgroundColor="{StaticResource BgLight}"
+           CornerRadius="12">
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnFrameTapped" />
+        </Frame.GestureRecognizers>
+
+        <Grid>
+            <Label x:Name="NoActiveLabel"
+                   FontAttributes="Italic"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   IsVisible="False"/>
+            <Grid x:Name="AcademicGrid"
+                  ColumnDefinitions="Auto,*,Auto"
+                  RowDefinitions="*,*,*,*,48,*"
+                  IsVisible="True">
+                <Label x:Name="DateRange"
+                       TextColor="{StaticResource TextMuted}"
+                       VerticalOptions="Center"
+                       Grid.Row="3"
+                       Grid.ColumnSpan="3" />
+                <controls:StatusIndicator x:Name="StatusIndicator"
+                                          Status="Active"
+                                          Grid.Column="2"
+                                          Grid.ColumnSpan="2"
+                                          HorizontalOptions="End"/>
+                <Label x:Name="TitleLabel"
+                       Style="{StaticResource SectionHeaderText}"
+                       Grid.Row="2"
+                       Grid.ColumnSpan="3"/>
+                <Label x:Name="NoOfChildren"
+                       VerticalOptions="Center"/>
+                <controls:ProgressBar x:Name="ProgressBar"
+                                      Grid.ColumnSpan="3"
+                                      Grid.Row="4"/>
+
+                <HorizontalStackLayout Grid.Row="5" Grid.ColumnSpan="2" Spacing="12">
+                    <Frame BackgroundColor="{StaticResource BgDark}"
+                           Padding="16,12"
+                           CornerRadius="12"
+                           VerticalOptions="Center">
+                        <Label x:Name="InfoLabel1" Style="{StaticResource MutedText}"/>
+                    </Frame>
+                    <Frame BackgroundColor="{StaticResource BgDark}"
+                           Padding="12,12"
+                           CornerRadius="12"
+                           VerticalOptions="Center">
+                        <Label x:Name="InfoLabel2" Style="{StaticResource MutedText}"/>
+                    </Frame>
+                </HorizontalStackLayout>
+
+                <controls:ButtonIndicator x:Name="ButtonIndicator"
+                                          Status="Active"
+                                          Grid.Column="3"
+                                          Grid.Row="5"
+                                          HorizontalOptions="End"/>
+            </Grid>
+        </Grid>
+    </Frame>
+</ContentView>

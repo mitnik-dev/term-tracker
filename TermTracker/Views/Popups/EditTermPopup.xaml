@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+           x:Class="TermTracker.Views.Popups.EditTermPopup">
+    <Border BackgroundColor="{StaticResource BgLight}"
+            Padding="20">
+        <VerticalStackLayout Spacing="14" WidthRequest="280">
+            <Label Text="Edit Term" Style="{StaticResource SectionHeaderText}"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Name" Style="{StaticResource DefaultText}" />
+            <Entry Text="{Binding Name}" Placeholder="Term name" />
+
+            <Label Text="Start Date" Style="{StaticResource DefaultText}" />
+            <DatePicker Date="{Binding StartDate}" />
+
+            <Label Text="End Date" Style="{StaticResource DefaultText}" />
+            <DatePicker Date="{Binding EndDate}" />
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                <Button Text="Cancel"
+                        Clicked="OnCancelClicked"/>
+                <Button Text="Save"
+                        Clicked="OnSaveClicked"
+                        Grid.Column="2"/>
+            </Grid>
+
+            <Button Text="Delete Term"
+                    BackgroundColor="{StaticResource Danger}"
+                    TextColor="White"
+                    Clicked="OnDeleteClicked" />
+        </VerticalStackLayout>
+    </Border>
+</mct:Popup>

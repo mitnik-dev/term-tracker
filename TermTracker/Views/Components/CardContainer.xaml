@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:TermTracker.Views.Components"
+             x:Class="TermTracker.Views.Components.CardContainer">
+
+    <VerticalStackLayout Spacing="12">
+        <CollectionView x:Name="ItemsCollectionView"
+                        SelectionMode="Single"
+                        VerticalScrollBarVisibility="Never"
+                        SelectionChanged="OnCollectionViewSelectionChanged">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                                   ItemSpacing="12" />
+            </CollectionView.ItemsLayout>
+        </CollectionView>
+
+        <Frame x:Name="AddButtonFrame"
+               BackgroundColor="{StaticResource BgLight}"
+               BorderColor="{StaticResource BorderMuted}"
+               CornerRadius="12"
+               HeightRequest="40"
+               Padding="0"
+               Margin="4,0"
+               HasShadow="False">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnAddButtonTapped" />
+            </Frame.GestureRecognizers>
+            <Grid HeightRequest="40" HorizontalOptions="Fill" VerticalOptions="Fill" Padding="10">
+                <Image Source="plus.png"
+                       Aspect="AspectFit"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center" />
+            </Grid>
+        </Frame>
+    </VerticalStackLayout>
+    
+</ContentView>
+
