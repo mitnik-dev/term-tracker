@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TermTracker — Track Your Academic Journey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="glow glow-1"></div>
+      <div class="glow glow-2"></div>
+
+      <nav class="nav">
+        <div class="brand">
+          <span class="brand-mark">TT</span>
+          <span class="brand-name">TermTracker</span>
+        </div>
+      </nav>
+
+      <header class="hero">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <h1 class="highlight">TermTracker</h1>
+            <p class="lead">
+              Track terms, courses &amp; assessments. Get notified on key dates. 
+              Keep notes organized. All stored locally on your device.
+            </p>
+            <a
+              class="download-btn"
+              href="packages/com.companyname.termtracker-Signed.apk"
+              download
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download for Android
+            </a>
+            <p class="meta">Android 5.0+  ·  .NET MAUI  ·  v1.1</pv>
+          </div>
+        </div>
+      </header>
+
+      <footer class="footer">
+        <p>&copy; <span id="year"></span> TermTracker</p>
+      </footer>
+    </div>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
+

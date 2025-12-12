@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TermTracker.Views.Components.SearchBar">
+
+    <Frame Padding="12,0"
+           CornerRadius="12"
+           BackgroundColor="{StaticResource BgLight}"
+           BorderColor="{StaticResource BorderMuted}">
+        <Grid ColumnDefinitions="*,Auto">
+            <Entry x:Name="SearchEntry"
+                   TextColor="{StaticResource Text}"
+                   PlaceholderColor="{StaticResource TextMuted}"
+                   BackgroundColor="Transparent"
+                   VerticalOptions="Center"
+                   Grid.Column="0"
+                   TextChanged="OnSearchTextChanged"/>
+
+            <Image Source="search.png"
+                   WidthRequest="20"
+                   HeightRequest="20"
+                   Aspect="AspectFit"
+                   Opacity="0.5"
+                   VerticalOptions="Center"
+                   Grid.Column="1"
+                   Margin="8,0,0,0"/>
+        </Grid>
+    </Frame>
+
+</ContentView>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+           x:Class="TermTracker.Views.Popups.EditAssessmentPopup">
+    <Border BackgroundColor="{StaticResource BgLight}"
+            Padding="20">
+        <VerticalStackLayout Spacing="14" WidthRequest="280">
+            <Label Text="Edit Assessment" Style="{StaticResource SectionHeaderText}"
+                   FontSize="18"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Assessment Type" Style="{StaticResource DefaultText}" />
+            <Picker x:Name="TypePicker">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Objective</x:String>
+                        <x:String>Performance</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <Label Text="Assessment Name" Style="{StaticResource DefaultText}" />
+            <Entry x:Name="NameEntry" Placeholder="Assessment name" MaxLength="100" />
+
+            <Label Text="Start Date" Style="{StaticResource DefaultText}" />
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                <DatePicker x:Name="StartDatePicker" Grid.Column="0" />
+                <HorizontalStackLayout Grid.Column="1">
+                    <CheckBox x:Name="StartDateNotificationCheckBox"
+                              VerticalOptions="Center" />
+                    <Label Text="Notify at 9am"
+                           VerticalOptions="Center"
+                           TextColor="{StaticResource TextMuted}"/>
+                </HorizontalStackLayout>
+            </Grid>
+
+            <Label Text="End Date" Style="{StaticResource DefaultText}" />
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
+                <DatePicker x:Name="EndDatePicker" Grid.Column="0" />
+                <HorizontalStackLayout Grid.Column="1">
+                    <CheckBox x:Name="EndDateNotificationCheckBox"
+                          VerticalOptions="Center" />
+                    <Label Text="Notify at 9am"
+                       VerticalOptions="Center"
+                       TextColor="{StaticResource TextMuted}"/>
+                </HorizontalStackLayout>
+            </Grid>
+
+            <Button Text="Delete"
+                    Clicked="OnDeleteClicked"
+                    BackgroundColor="{StaticResource Danger}"/>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                <Button Text="Cancel"
+                        Clicked="OnCancelClicked"
+                        Grid.Column="0"/>
+                <Button Text="Save"
+                        Clicked="OnSaveClicked"
+                        Grid.Column="1"/>
+            </Grid>
+        </VerticalStackLayout>
+    </Border>
+</mct:Popup>

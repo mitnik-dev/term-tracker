@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TermTracker.Views.ReportsPage"
+             Title="Dashboard">
+
+    <ScrollView Padding="30,12,30,30">
+        <VerticalStackLayout Spacing="20">
+
+            <Label Text="Academic Reports"
+                   Style="{StaticResource HeaderText}"/>
+
+            <VerticalStackLayout Spacing="10">
+              
+                <Picker x:Name="TermPicker"
+                        Title="Choose a term..."
+                        SelectedIndexChanged="OnTermSelected"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout x:Name="ReportContainer"
+                                 Spacing="16"
+                                 IsVisible="False">
+
+                <VerticalStackLayout Spacing="8">
+                    <Label x:Name="ReportTitle"
+                           Style="{StaticResource SectionHeaderText}"/>
+
+                    <Label x:Name="TermDateRange"
+                           Style="{StaticResource DefaultText}"/>
+                </VerticalStackLayout>
+
+
+                <VerticalStackLayout x:Name="CoursesSection"
+                                     Spacing="12">
+                    <Label Text="Courses"
+                           FontFamily="InterMedium18"
+                           FontSize="18"
+                           Margin="0,8,0,0"/>
+
+
+                    <VerticalStackLayout x:Name="CoursesContainer"
+                                         Spacing="16"/>
+                </VerticalStackLayout>
+
+                <Frame BackgroundColor="{StaticResource BgDark}"
+                       BorderColor="{StaticResource BorderMuted}"
+                       CornerRadius="12"
+                       Padding="16">
+                    <VerticalStackLayout Spacing="6">
+                        <Label Text="Summary"/>
+                        <Label x:Name="TotalCoursesLabel"/>
+                        <Label x:Name="TotalAssessmentsLabel"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

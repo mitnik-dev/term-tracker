@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:TermTracker.Views.Components"
+             x:Class="TermTracker.Views.CoursePage"
+             Title="Course Info"
+             NavigationPage.BackButtonTitle="Go Back">
+    <Shell.TitleView>
+        <Grid Padding="0,0,36,0" ColumnDefinitions="*,Auto,Auto">
+            <Label Text="Term"
+                   Style="{StaticResource SectionHeaderText}"
+                   VerticalTextAlignment="Center"
+                   Grid.Column="0" />
+            <Image Source="bell.png"
+                   WidthRequest="24"
+                   HeightRequest="24"
+                   Grid.Column="1"
+                   Margin="0,0,16,0"
+                   VerticalOptions="Center">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnNotificationsClicked" />
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Source="edit_page.png"
+                   WidthRequest="24"
+                   HeightRequest="24"
+                   Grid.Column="2"
+                   VerticalOptions="Center">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnEditCourseClicked" />
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+    </Shell.TitleView>
+    <ScrollView Padding="30,12,30,30">
+        <VerticalStackLayout Spacing="20">
+            <VerticalStackLayout Spacing="4">
+                <Label x:Name="CourseStatusLabel" FontAttributes="Italic" TextColor="{StaticResource TextMuted}"/>
+                <Label x:Name="CourseNameLabel"
+                       Style="{StaticResource HeaderText}"
+                       VerticalOptions="End" />
+
+                <Label x:Name="DateRange"/>
+            </VerticalStackLayout>
+
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Instructor"  />
+
+                <Frame Padding="12">
+                    <Grid ColumnDefinitions="Auto,*" ColumnSpacing="12">
+
+                        <Image Source="avatar.png"
+                        Aspect="AspectFit"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        HeightRequest="48"
+                        WidthRequest="48"/>
+
+                        <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
+                            <Label x:Name="InstructorNameLabel" />
+                            <Label x:Name="InstructorPhoneLabel" TextColor="{StaticResource TextMuted}" Style="{StaticResource MutedText}" />
+                            <Label x:Name="InstructorEmailLabel" TextColor="{StaticResource TextMuted}" Style="{StaticResource MutedText}" />
+                        </VerticalStackLayout>
+                    </Grid>
+                </Frame>
+            </VerticalStackLayout>
+
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Assessments" />
+
+                <controls:AssessmentsContainer x:Name="AssessmentsContainerControl"
+                           Assessments="{Binding Assessments}"
+                           ShowAddButton="{Binding ShowAddAssessmentButton}"
+                           AddAssessmentClicked="OnAddAssessmentClicked"
+                           AssessmentClicked="OnAssessmentClicked"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Notes" />
+                <controls:NotesGrid x:Name="NotesGridControl"
+                                    Notes="{Binding Notes}"
+                                    NoteClicked="OnNoteClicked"
+                                    AddNoteClicked="OnAddNoteClicked" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

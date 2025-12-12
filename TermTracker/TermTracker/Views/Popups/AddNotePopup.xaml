@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+           x:Class="TermTracker.Views.Popups.AddNotePopup">
+    <Border BackgroundColor="{StaticResource BgLight}"
+            Padding="20">
+        <VerticalStackLayout Spacing="14" WidthRequest="280">
+            <Label Text="Add Note" Style="{StaticResource SectionHeaderText}"
+                   FontSize="18"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Title" Style="{StaticResource DefaultText}" />
+            <Entry Text="{Binding Title}" Placeholder="Note title" MaxLength="100" />
+
+            <Label Text="Content" Style="{StaticResource DefaultText}" />
+            <Editor Text="{Binding Content}"
+                    Placeholder="Note content"
+                    HeightRequest="150"
+                    AutoSize="TextChanges" />
+
+            <Label Text="Size" Style="{StaticResource DefaultText}" />
+            <Picker x:Name="TypePicker"
+                    SelectedIndex="{Binding TypeIndex}" />
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="8">
+                <Button Text="Cancel"
+                        Clicked="OnCancelClicked"/>
+                <Button Text="Save"
+                        Clicked="OnSaveClicked"
+                        Grid.Column="1"/>
+            </Grid>
+        </VerticalStackLayout>
+    </Border>
+</mct:Popup>
